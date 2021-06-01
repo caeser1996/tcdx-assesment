@@ -3,7 +3,7 @@
 Node.js version 12+ and npm must be installed on your machine.  In terminal type the following commands:
 ```
 git clone git@github.com:caeser1996/tcdx-assesment.git
-cd task-manger-api
+cd tcdx-assesment
 sudo npm install
 mkdir config
 cd config
