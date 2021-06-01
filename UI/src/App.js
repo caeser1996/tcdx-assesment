@@ -42,7 +42,7 @@ class App extends Component {
         <nav className="navbar navbar-expand navbar- text-dark bg-light">
         {currentUser ? ( <Link to={"/"} className="navbar-brand">
            
-            <img src= {currentUser.image} class="rounded" alt="..."></img>
+            <img src= {currentUser.image} className="rounded" alt="..."></img>
           </Link>):( <Link to={"/"} className="navbar-brand">
             Task Management
           </Link>)}
@@ -55,7 +55,7 @@ class App extends Component {
             )}
           </div>
 
-          {currentUser ? (
+          {currentUser && (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
                 <a href="/login" className="nav-link" onClick={this.logOut}>
@@ -63,21 +63,7 @@ class App extends Component {
                 </a>
               </li>
             </div>
-          ) : (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/login"} className="nav-link">
-                  Login
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
-                  Sign Up
-                </Link>
-              </li>
-            </div>
-          )}
+          ) }
         </nav>
 
         <div className="container mt-3">

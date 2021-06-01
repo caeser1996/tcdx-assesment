@@ -4,21 +4,31 @@ import authHeader from './auth-header';
 const API_URL = 'http://localhost:5000';
 
 class UserService {
-  fetchDashboardData() {
-    return axios.get(API_URL + '/dashboard', { headers: authHeader() });
-  }
+    fetchDashboardData() {
+        return axios.get(API_URL + '/dashboard', {headers: authHeader()});
+    }
 
-  getUserBoard() {
-    return axios.get(API_URL + 'user', { headers: authHeader() });
-  }
+    fetchAllTasks() {
+        return axios.get(API_URL + '/tasks', {headers: authHeader()});
+    }
 
-  getModeratorBoard() {
-    return axios.get(API_URL + 'mod', { headers: authHeader() });
-  }
+    addTask(body) {
+        return axios.post(API_URL + '/tasks', body, {headers: authHeader()});
+    }
 
-  getAdminBoard() {
-    return axios.get(API_URL + 'admin', { headers: authHeader() });
-  }
+    editTask(body) {
+        let id = body._id
+        console.log(id)
+        delete body._id
+        return axios.put(API_URL + '/tasks/' + id, body, {headers: authHeader()});
+    }
+
+    delete(body) {
+        let id = body._id
+        delete body._id
+        return axios.delete(API_URL + '/tasks/' + id, {headers: authHeader()});
+    }
+
 }
 
 export default new UserService();
